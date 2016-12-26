@@ -2,11 +2,16 @@ import React, { Component } from 'react';
 import { browserHistory } from 'react-router';
 
 class CarDetail extends Component {
+     constructor(props) {
+    super(props)
+    this.state = { items: this.props.route.data || [] }
+    console.log(this.state.items)
+  }
     handleRedirect(){
         browserHistory.push('/');
     }
     render(){
-        const cars = this.props.route.data;
+        const cars = this.state.items;
         const id = this.props.params.id;
         const car = cars.filter(car => {
             if(car.id == id) {

@@ -78,17 +78,23 @@ export default class AppRouter extends Component {
     super(props)
     this.state = { items: data }
   };
+	
   updateItems(newItem){
-		var allItems = this.state.items.concat([newItem]);
-		this.setState({items: allItems});
+      console.log(newItem);
+			var a = this.state.items;
+		 var allItems = a.concat([newItem]);
+		 this.setState({items: allItems});
 	};
 
+  
   render() {
     console.log('Item count on Router render:', this.state.items.length);
     return (
  	<Router history={browserHistory}>
 	  <Route path="/" component={CarList} data={this.state.items}/>
-	  <Route path=":id" component={CarDetail} data={this.state}/>
+		<Route path="/AddCar" component={AddCar}  />
+	  <Route path=":id" component={CarDetail} data={this.state.items}/>
+
   	</Router>
      )
   }
