@@ -13,16 +13,13 @@ const ProfilePicture = ({ imgSrc, borderColor }) => (
 	/>
 );
 
-class Card extends Component{
-    
+class Card extends Component{   
     render(){
         const {cardId, cardSelected, topOffset, hoverOffset} = this.props;
 		//const offset =  250;
         //const transform = `translate3d(0,${topOffset - offset}px,0)`;
         const cardStyles = {
-			...style1,
 			background: this.props.background,
-		
 			height: this.props.height,
 		}
         
@@ -37,8 +34,7 @@ class Card extends Component{
             </header>
         </div>
     ) 
-    }
-   
+    } 
 }
 
 class CarListItem extends Component{
@@ -52,8 +48,8 @@ class CarListItem extends Component{
             <div className="list-group"style={pageStyle}>
             {cars.map((car) => 
                 <Link
-                    key={car.id}
-                    to={"/"+car.id}
+                    key={car.Id}
+                    to={"/"+car.Id}
                     className="list-group-item">
                     <Card {...car}/>
                     </Link>
@@ -64,12 +60,6 @@ class CarListItem extends Component{
         );
     }  
 }
-
-
-
-const style1 = {
-
-};
 
 const styles = {
 	cardHeader: {

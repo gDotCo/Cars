@@ -10,6 +10,7 @@
     "express": "^4.14.0",
     "history": "^3.0.0",
     "jquery": "^3.1.1",
+    "rc-progress": "^2.0.3",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "react-router": "^2.6.1"

@@ -6,7 +6,6 @@ import axios from 'axios';
 
 
 class AddCarCard extends Component{
-    
     render(){
         //const transform = `translate3d(0,${topOffset - offset}px,0)`;
         const cardStyles = {
@@ -14,34 +13,34 @@ class AddCarCard extends Component{
             height:'60px',
             width:'60%'
 		}
-        
          return (
-        <div style={cardStyles}>
-        +
-        </div>
-    ) 
+             <Link 
+             to='/AddCar'>
+            <div style={cardStyles}>
+            +
+            </div>
+            </Link>
+        ) 
     }
-   
 }
 
-class CarList extends Component {
-  
+class CarList extends Component {  
    constructor(props) {
-    super(props)
-    this.state = { items:  [] }
-    //console.log(this.props)
-  }
+        super(props)
+        this.state = { items:  [] }
+        //console.log(this.props)
+    }
   componentDidMount(){
       var _this = this;
       axios
         .get("http://localhost:29607/ImageLDL")
         .then(function(result) {    
-          _this.setState({
+            _this.setState({
             items: result.data
-          });
-          console.log(result)
+            });
+            console.log(result)
         })
-  }
+    }
   
   updateItems(newItem){
       console.log(newItem)
@@ -52,7 +51,7 @@ class CarList extends Component {
         const cars = this.state.items;
         return (
             <div>
-                  <AddCar onFormSubmit={this.updateItems}/> 
+                  <AddCarCard /> 
                 <CarListItem data={cars}/>
             </div>
         );
